@@ -228,53 +228,33 @@ body {
 /* ───────── SEARCH WRAPPER ───────── */
 
 .search-wrapper {
-
   position: relative;
-
 }
 
 /* ───────── CLEAR BUTTON ───────── */
 
 .search-clear {
-
   position: absolute;
-
   right: 18px;
-
   top: 50%;
-
   transform: translateY(-50%);
-
   border: none;
-
   background: transparent;
-
   cursor: pointer;
-
   font-size: 22px;
-
   color: rgba(0, 0, 0, 0.4);
-
   opacity: 0;
-
   visibility: hidden;
-
   transition: 0.2s ease;
-
 }
 
 .search-clear.visible {
-
   opacity: 1;
-
   visibility: visible;
-
 }
 
 .search-clear:hover {
-
   color: #111111;
-
 }
 
 /* ───────── SEARCH SUGGESTIONS ───────── */
@@ -294,29 +274,18 @@ body {
 /* ───────── SUGGESTION ITEM ───────── */
 
 .suggestion-item {
-
   border: none;
-
   background: rgba(0, 0, 0, 0.06);
-
   padding: 10px 16px;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   font-family: 'Zeist', sans-serif;
-
   font-size: 14px;
-
   transition: 0.2s ease;
-
 }
 
 .suggestion-item:hover {
-
   background: rgba(0, 0, 0, 0.12);
-
 }
 
 /* ───────── GLOSSAR ───────── */
@@ -352,6 +321,7 @@ body {
 
 .glossary-term {
   font-family: 'Zeist SemiBold';
+  letter-spacing: 0.015em;
   color: #173965;
 }
 
@@ -511,6 +481,12 @@ body {
   color: #f7f5ef;
 } */
 
+.theme-toggle:hover {
+  font-family: 'Zeist SemiBold', sans-serif;
+  color: #1b4276;
+  opacity: 1;
+}
+
 /* ───────── DARKMODE ───────── */
 
 body.dark-mode {
@@ -647,6 +623,12 @@ body.dark-mode .theme-toggle {
   color: #182f4c;
 } */
 
+.theme-toggle:hover {
+  font-family: 'Zeist SemiBold', sans-serif;
+  color: #1b4276;
+  opacity: 1;
+}
+
 /* ───────── DARKMODE ───────── */
 
 body.dark-mode {
@@ -750,6 +732,8 @@ body.dark-mode .theme-toggle {
   background: #7298be;
   color: #182f4c;
 } */
+
+
 
 
 

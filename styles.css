@@ -50,6 +50,31 @@ body {
   font-family: 'Zeist Regular';
 }
 
+/* ───────── SMOOTH THEME TRANSITION ───────── */
+/* body,
+.page-wrapper,
+.hero-section,
+.alphabet-nav,
+.alphabet-nav a,
+#searchInput,
+.glossary-text,
+.glossary-term,
+.letter-marker,
+.footer-text,
+.back-to-top,
+.theme-toggle,
+.suggestion-item,
+.glossary-entry,
+.search-clear {
+
+  transition:
+    background-color 0.55s ease-out,
+    color 0.55s ease-out,
+    color 0.55s ease,
+    border-color 0.55s ease,
+    opacity 0.55s ease,
+    backdrop-filter 0.55s ease-out;
+} */
 
 /* ───────── WRAPPER ───────── */
 
@@ -70,7 +95,6 @@ body {
     /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
   }
 }
-
 
 /* ───────── HERO ───────── */
 
@@ -203,7 +227,8 @@ body {
 #searchInput {
   width: 100%;
   height: 64px;
-  border-radius: 25px;
+  /* border-radius: 25px; */
+  border-radius: 55px;
   /* border: 1px solid rgba(0, 0, 0, 0.06); */
   /* border: 1px solid rgba(114, 152, 190, 0.5); */
   border: 1.3px solid #1739653d;
@@ -255,6 +280,16 @@ body {
 
 .search-clear:hover {
   color: #111111;
+}
+
+/* ───────── DARKMODE CLEAR BUTTON ───────── */
+
+body.dark-mode .search-clear {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+body.dark-mode .search-clear:hover {
+  color: #f9f8f3;
 }
 
 /* ───────── SEARCH SUGGESTIONS ───────── */
@@ -490,12 +525,13 @@ body {
 /* ───────── DARKMODE ───────── */
 
 body.dark-mode {
-
   background: #182f4c;
-
   color: #f3f1ea;
-
 }
+
+/* body.dark-mode .page-wrapper {
+  background: #182f4c;
+} */
 
 /* HERO */
 
@@ -603,7 +639,7 @@ body.dark-mode .footer-text {
 
 body.dark-mode .back-to-top {
 
-  background: #182f4c;
+  background: transparent;
 
   color: #b8cee5;
 

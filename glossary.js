@@ -1975,26 +1975,6 @@ function normalizeText(text) {
 
 }
 
-/* ───────── RENDER GLOSSAR ───────── */
-// function renderGlossary(data) {
-//   glossaryContainer.innerHTML = '';
-//   // const grouped = {};
-// data.forEach(entry => {
-//   const article =
-//     document.createElement('article');
-//   article.classList.add('glossary-entry');
-//   article.innerHTML = `
-//     <p class="glossary-text">
-//       <span class="glossary-term">
-//         ${entry.term}:
-//       </span>
-//       ${entry.description}
-//     </p>
-//   `;
-
-//   glossaryContainer.appendChild(article);
-// });
-// }
 
 
 function renderGlossary(data, isSearch = false) {
@@ -2042,9 +2022,6 @@ function renderGlossary(data, isSearch = false) {
   const grouped = {};
 
   data.forEach(item => {
-
-    // const letter =
-    //   item.term.charAt(0).toUpperCase();
 
     let letter =
       item.term.charAt(0).toUpperCase();
@@ -2153,10 +2130,6 @@ const clearButton =
 
 searchInput.addEventListener('input', (e) => {
 
-  // const value =
-  //   e.target.value
-  //     .trim()
-  //     .toLowerCase();
 
   const value =
     normalizeText(
@@ -2185,11 +2158,7 @@ searchInput.addEventListener('input', (e) => {
 
       .map(item => {
 
-        // const term =
-        //   item.term.toLowerCase();
 
-        // const description =
-        //   item.description.toLowerCase();
 
         const term =
           normalizeText(item.term);
@@ -2242,34 +2211,10 @@ searchInput.addEventListener('input', (e) => {
 
 
 
-  // renderGlossary(filtered);
+
 
   renderGlossary(filtered, true);
 
-  /* ───────── AUTO SCROLL ZUM ERSTEN TREFFER ───────── */
-
-  // if (filtered.length > 0) {
-  //   requestAnimationFrame(() => {
-  //     const firstLetter =
-  //       filtered[0]
-  //         .term
-  //         .charAt(0)
-  //         .toLowerCase();
-  //     const target =
-  //       document.getElementById(firstLetter);
-  //     if (target) {
-  //       const offset = 140;
-  //       const top =
-  //         target.getBoundingClientRect().top
-  //         + window.scrollY
-  //         - offset;
-  //       window.scrollTo({
-  //         top,
-  //         behavior: 'smooth'
-  //       });
-  //     }
-  //   });
-  // }
 
 
   /* ───────── SUGGESTIONS ───────── */
@@ -2444,28 +2389,143 @@ document
     });
 
   });
+  
+
 
 /* ───────── DARKMODE ───────── */
 
 const themeToggle =
   document.querySelector('.theme-toggle');
 
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
 
 
-  /* BUTTON TEXT ÄNDERN */
+if (themeToggle) {
 
-  if (
-    document.body.classList.contains('dark-mode')
-  ) {
+  const mediaQuery =
+    window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    );
 
-    themeToggle.textContent = 'Light';
 
-  } else {
 
-    themeToggle.textContent = 'Dark';
+  /* ───────── SYSTEM THEME ───────── */
+
+  function applySystemTheme() {
+
+    if (
+      !localStorage.getItem('theme')
+    ) {
+
+      if (mediaQuery.matches) {
+
+        document.body.classList.add(
+          'dark-mode'
+        );
+
+      }
+
+      else {
+
+        document.body.classList.remove(
+          'dark-mode'
+        );
+
+      }
+
+    }
 
   }
 
-});
+
+
+  applySystemTheme();
+
+
+
+  /* ───────── SYSTEM ÄNDERUNGEN LIVE ───────── */
+
+  mediaQuery.addEventListener(
+    'change',
+    applySystemTheme
+  );
+
+
+
+  /* ───────── SAVED THEME ───────── */
+
+  const savedTheme =
+    localStorage.getItem('theme');
+
+
+
+  if (savedTheme === 'dark') {
+
+    document.body.classList.add(
+      'dark-mode'
+    );
+
+  }
+
+  else if (savedTheme === 'light') {
+
+    document.body.classList.remove(
+      'dark-mode'
+    );
+
+  }
+
+
+
+  /* ───────── BUTTON TEXT ───────── */
+
+  function updateThemeButton() {
+
+    themeToggle.textContent =
+
+      document.body.classList.contains(
+        'dark-mode'
+      )
+
+        ? 'Light'
+
+        : 'Dark';
+
+  }
+
+  updateThemeButton();
+
+
+
+  /* ───────── TOGGLE ───────── */
+
+  themeToggle.addEventListener('click', () => {
+
+    document.body.classList.toggle(
+      'dark-mode'
+    );
+
+
+
+    const isDark =
+
+      document.body.classList.contains(
+        'dark-mode'
+      );
+
+
+
+    localStorage.setItem(
+
+      'theme',
+
+      isDark ? 'dark' : 'light'
+
+    );
+
+
+
+    updateThemeButton();
+
+  });
+
+}

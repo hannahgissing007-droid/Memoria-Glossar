@@ -267,7 +267,7 @@ body {
   background: transparent;
   cursor: pointer;
   font-size: 22px;
-  color: rgba(0, 0, 0, 0.4);
+  color: #17396547;
   opacity: 0;
   visibility: hidden;
   transition: 0.2s ease;
@@ -279,7 +279,7 @@ body {
 }
 
 .search-clear:hover {
-  color: #111111;
+  color: #173965;
 }
 
 /* ───────── DARKMODE CLEAR BUTTON ───────── */
@@ -310,17 +310,20 @@ body.dark-mode .search-clear:hover {
 
 .suggestion-item {
   border: none;
-  background: rgba(0, 0, 0, 0.06);
+  /* background: rgba(0, 0, 0, 0.06); */
+  background: rgba(114, 152, 190, 0.073);
   padding: 10px 16px;
   border-radius: 999px;
   cursor: pointer;
+  color: #173965;
   font-family: 'Zeist', sans-serif;
   font-size: 14px;
   transition: 0.2s ease;
 }
 
 .suggestion-item:hover {
-  background: rgba(0, 0, 0, 0.12);
+  /* background: rgba(0, 0, 0, 0.12); */
+  background: #17396521;
 }
 
 /* ───────── GLOSSAR ───────── */

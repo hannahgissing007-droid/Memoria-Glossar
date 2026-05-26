@@ -790,3 +790,7 @@ body.dark-mode .theme-toggle {
   /* opacity: 0.7; */
   color: #173965;
 }
+
+body.dark-mode .footer-link:hover {
+  color: #f3f1ea;
+}

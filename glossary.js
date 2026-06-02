@@ -21,7 +21,7 @@ const glossaryData = [
   {
     term: "Aktivierungsniveau",
     description:
-      "Grad der physiologischen oder psychischen Aktivierung des Nervensystems."
+      "Grad der geistigen und körperlichen Aktivierung einer Person, der Aufmerksamkeit, Leistungsfähigkeit und Verhalten beeinflusst."
   },
 
   {
@@ -81,7 +81,7 @@ const glossaryData = [
   {
     term: "Arbeitsgedächtnis",
     description:
-      "Kurzfristiges Speichersystem zur aktiven Verarbeitung von Informationen."
+      "Kurzfristiger Speicher für Informationen, die zur Verarbeitung und Bearbeitung aktueller Aufgaben benötigt werden."
   },
 
   {
@@ -129,7 +129,7 @@ const glossaryData = [
   {
     term: "Attraktor",
     description:
-      "Zustand oder Muster, zu dem sich ein dynamisches System mit der Zeit hin entwickelt."
+      "Stabiler Zustand oder Muster in einem dynamischen System, auf den sich Prozesse im Laufe der Zeit zubewegen und dort verbleiben können."
   },
 
   {
@@ -405,7 +405,7 @@ const glossaryData = [
   {
     term: "Episodisches Gedächtnis",
     description:
-      "Teil des Gedächtnisses für persönliche Erlebnisse und Ereignisse."
+      "Teil unseres Langzeitgedächtnisses, der für die Speicherung persönlich erlebter Ereignisse zuständig ist."
   },
 
   {
@@ -429,7 +429,7 @@ const glossaryData = [
   {
     term: "Erinnerung",
     description:
-      "Gespeicherte Information oder Erfahrung, die wieder abgerufen werden kann."
+      "Gespeicherte Information oder Erfahrung, die zu einem späteren Zeitpunkt wieder abgerufen werden kann."
   },
 
   {
@@ -441,7 +441,7 @@ const glossaryData = [
   {
     term: "Erinnerungsnetzwerk",
     description:
-      "Neuronale Verbindungen, die gemeinsam eine Erinnerung repräsentieren."
+      "Verknüpfung von Erinnerungen, Wissen und Erfahrungen im Gedächtnis, die den Abruf gespeicherter Informationen unterstützt."
   },
 
   {
@@ -759,7 +759,7 @@ const glossaryData = [
   {
     term: "Großhirnrinde",
     description:
-      "Äußere Schicht des Gehirns, die höhere kognitive Prozesse ermöglicht."
+      "Äußere Schicht des Großhirns, die an der Verarbeitung von Sinneseindrücken sowie an Denken, Lernen, Sprache und Gedächtnis beteiligt ist."
   },
 
   {
@@ -2359,12 +2359,26 @@ window.addEventListener('scroll', () => {
 
 backToTop.addEventListener('click', () => {
 
-  window.scrollTo({
+  const target =
+    document.querySelector('.alphabet-nav');
 
-    top: 0,
-    behavior: 'smooth'
+  if (target) {
 
-  });
+    const offset = 20;
+
+    const top =
+      target.getBoundingClientRect().top
+      + window.scrollY
+      - offset;
+
+    window.scrollTo({
+
+      top,
+      behavior: 'smooth'
+
+    });
+
+  }
 
 });
 
